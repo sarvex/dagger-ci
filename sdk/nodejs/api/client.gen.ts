@@ -202,6 +202,15 @@ export type ContainerWithDirectoryOpts = {
    * Patterns to include in the written directory (e.g., ["*.go", "go.mod", "go.sum"]).
    */
   include?: string[]
+
+  /**
+   * A user:group to set for the directory and its contents.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
+   */
+  owner?: string
 }
 
 export type ContainerWithExecOpts = {
@@ -261,6 +270,15 @@ export type ContainerWithFileOpts = {
    * Default: 0644.
    */
   permissions?: number
+
+  /**
+   * A user:group to set for the file.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
+   */
+  owner?: string
 }
 
 export type ContainerWithMountedCacheOpts = {
@@ -273,6 +291,48 @@ export type ContainerWithMountedCacheOpts = {
    * Sharing mode of the cache volume.
    */
   sharing?: CacheSharingMode
+
+  /**
+   * A user:group to set for the mounted cache directory.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
+   */
+  owner?: string
+}
+
+export type ContainerWithMountedDirectoryOpts = {
+  /**
+   * A user:group to set for the mounted directory and its contents.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
+   */
+  owner?: string
+}
+
+export type ContainerWithMountedFileOpts = {
+  /**
+   * A user or user:group to set for the mounted file.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
+   */
+  owner?: string
+}
+
+export type ContainerWithMountedSecretOpts = {
+  /**
+   * A user:group to set for the mounted secret.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
+   */
+  owner?: string
 }
 
 export type ContainerWithNewFileOpts = {
@@ -287,6 +347,26 @@ export type ContainerWithNewFileOpts = {
    * Default: 0644.
    */
   permissions?: number
+
+  /**
+   * A user:group to set for the file.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
+   */
+  owner?: string
+}
+
+export type ContainerWithUnixSocketOpts = {
+  /**
+   * A user:group to set for the mounted socket.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
+   */
+  owner?: string
 }
 
 export type ContainerWithoutExposedPortOpts = {
@@ -1144,6 +1224,11 @@ export class Container extends BaseClient {
    * @param directory Identifier of the directory to write
    * @param opts.exclude Patterns to exclude in the written directory (e.g., ["node_modules/**", ".gitignore", ".git/"]).
    * @param opts.include Patterns to include in the written directory (e.g., ["*.go", "go.mod", "go.sum"]).
+   * @param opts.owner A user:group to set for the directory and its contents.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
    */
   withDirectory(
     path: string,
@@ -1284,6 +1369,11 @@ export class Container extends BaseClient {
    * @param opts.permissions Permission given to the copied file (e.g., 0600).
    *
    * Default: 0644.
+   * @param opts.owner A user:group to set for the file.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
    */
   withFile(
     path: string,
@@ -1328,6 +1418,11 @@ export class Container extends BaseClient {
    * @param cache Identifier of the cache volume to mount.
    * @param opts.source Identifier of the directory to use as the cache volume's root.
    * @param opts.sharing Sharing mode of the cache volume.
+   * @param opts.owner A user:group to set for the mounted cache directory.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
    */
   withMountedCache(
     path: string,
@@ -1351,14 +1446,23 @@ export class Container extends BaseClient {
    * Retrieves this container plus a directory mounted at the given path.
    * @param path Location of the mounted directory (e.g., "/mnt/directory").
    * @param source Identifier of the mounted directory.
+   * @param opts.owner A user:group to set for the mounted directory and its contents.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
    */
-  withMountedDirectory(path: string, source: Directory): Container {
+  withMountedDirectory(
+    path: string,
+    source: Directory,
+    opts?: ContainerWithMountedDirectoryOpts
+  ): Container {
     return new Container({
       queryTree: [
         ...this._queryTree,
         {
           operation: "withMountedDirectory",
-          args: { path, source },
+          args: { path, source, ...opts },
         },
       ],
       host: this.clientHost,
@@ -1370,14 +1474,23 @@ export class Container extends BaseClient {
    * Retrieves this container plus a file mounted at the given path.
    * @param path Location of the mounted file (e.g., "/tmp/file.txt").
    * @param source Identifier of the mounted file.
+   * @param opts.owner A user or user:group to set for the mounted file.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
    */
-  withMountedFile(path: string, source: File): Container {
+  withMountedFile(
+    path: string,
+    source: File,
+    opts?: ContainerWithMountedFileOpts
+  ): Container {
     return new Container({
       queryTree: [
         ...this._queryTree,
         {
           operation: "withMountedFile",
-          args: { path, source },
+          args: { path, source, ...opts },
         },
       ],
       host: this.clientHost,
@@ -1389,14 +1502,23 @@ export class Container extends BaseClient {
    * Retrieves this container plus a secret mounted into a file at the given path.
    * @param path Location of the secret file (e.g., "/tmp/secret.txt").
    * @param source Identifier of the secret to mount.
+   * @param opts.owner A user:group to set for the mounted secret.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
    */
-  withMountedSecret(path: string, source: Secret): Container {
+  withMountedSecret(
+    path: string,
+    source: Secret,
+    opts?: ContainerWithMountedSecretOpts
+  ): Container {
     return new Container({
       queryTree: [
         ...this._queryTree,
         {
           operation: "withMountedSecret",
-          args: { path, source },
+          args: { path, source, ...opts },
         },
       ],
       host: this.clientHost,
@@ -1429,6 +1551,11 @@ export class Container extends BaseClient {
    * @param opts.permissions Permission given to the written file (e.g., 0600).
    *
    * Default: 0644.
+   * @param opts.owner A user:group to set for the file.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
    */
   withNewFile(path: string, opts?: ContainerWithNewFileOpts): Container {
     return new Container({
@@ -1534,14 +1661,23 @@ export class Container extends BaseClient {
    * Retrieves this container plus a socket forwarded to the given Unix socket path.
    * @param path Location of the forwarded Unix socket (e.g., "/tmp/socket").
    * @param source Identifier of the socket to forward.
+   * @param opts.owner A user:group to set for the mounted socket.
+   *
+   * The user and group can either be an ID (1000:1000) or a name (foo:bar).
+   *
+   * If the group is omitted, it defaults to the same as the user.
    */
-  withUnixSocket(path: string, source: Socket): Container {
+  withUnixSocket(
+    path: string,
+    source: Socket,
+    opts?: ContainerWithUnixSocketOpts
+  ): Container {
     return new Container({
       queryTree: [
         ...this._queryTree,
         {
           operation: "withUnixSocket",
-          args: { path, source },
+          args: { path, source, ...opts },
         },
       ],
       host: this.clientHost,
