@@ -527,10 +527,11 @@ func (s *containerSchema) withSecretVariable(ctx *router.Context, parent *core.C
 type containerWithMountedSecretArgs struct {
 	Path   string
 	Source core.SecretID
+	Owner  string
 }
 
 func (s *containerSchema) withMountedSecret(ctx *router.Context, parent *core.Container, args containerWithMountedSecretArgs) (*core.Container, error) {
-	return parent.WithMountedSecret(ctx, args.Path, core.NewSecret(args.Source))
+	return parent.WithMountedSecret(ctx, args.Path, core.NewSecret(args.Source), args.Owner)
 }
 
 type containerWithDirectoryArgs struct {
@@ -563,10 +564,11 @@ func (s *containerSchema) withNewFile(ctx *router.Context, parent *core.Containe
 type containerWithUnixSocketArgs struct {
 	Path   string
 	Source core.SocketID
+	Owner  string
 }
 
 func (s *containerSchema) withUnixSocket(ctx *router.Context, parent *core.Container, args containerWithUnixSocketArgs) (*core.Container, error) {
-	return parent.WithUnixSocket(ctx, args.Path, core.NewSocket(args.Source))
+	return parent.WithUnixSocket(ctx, args.Path, core.NewSocket(args.Source), args.Owner)
 }
 
 type containerWithoutUnixSocketArgs struct {
