@@ -25,6 +25,18 @@ class FileID(Scalar):
     """A file identifier."""
 
 
+class FilesystemOwner(Scalar):
+    """A user and group, as typically used to configure ownership of files
+    and directories.  The format is user[:group], where both user and
+    group can either be IDs or names to be resolved to IDs using the
+    container filesystem.  If the group is omitted, it defaults to the
+    same as the user.  So, for a user 'foo' and group 'bar' with user ID
+    and group ID 1111 and 2222 respectively, the following are all valid:
+    foo      => 1111:1111    foo:bar  => 1111:2222    1111:bar =>
+    1111:2222    foo:2222 => 1111:1111  If the owner is unspecified,
+    ownership will be left as-is."""
+
+
 class Platform(Scalar):
     """The platform config OS and architecture in a Container.  The format
     is [os]/[platform]/[version] (e.g., "darwin/arm64/v7",
@@ -800,7 +812,7 @@ class Container(Type):
         directory: "Directory",
         exclude: Optional[Sequence[str]] = None,
         include: Optional[Sequence[str]] = None,
-        owner: Optional[str] = None,
+        owner: Optional[FilesystemOwner] = None,
     ) -> "Container":
         """Retrieves this container plus a directory written at the given path.
 
@@ -975,7 +987,7 @@ class Container(Type):
         path: str,
         source: "File",
         permissions: Optional[int] = None,
-        owner: Optional[str] = None,
+        owner: Optional[FilesystemOwner] = None,
     ) -> "Container":
         """Retrieves this container plus the contents of the given file copied to
         the given path.
@@ -1030,7 +1042,7 @@ class Container(Type):
         cache: CacheVolume,
         source: Optional["Directory"] = None,
         sharing: Optional[CacheSharingMode] = None,
-        owner: Optional[str] = None,
+        owner: Optional[FilesystemOwner] = None,
     ) -> "Container":
         """Retrieves this container plus a cache volume mounted at the given
         path.
@@ -1066,7 +1078,7 @@ class Container(Type):
         self,
         path: str,
         source: "Directory",
-        owner: Optional[str] = None,
+        owner: Optional[FilesystemOwner] = None,
     ) -> "Container":
         """Retrieves this container plus a directory mounted at the given path.
 
@@ -1095,7 +1107,7 @@ class Container(Type):
         self,
         path: str,
         source: "File",
-        owner: Optional[str] = None,
+        owner: Optional[FilesystemOwner] = None,
     ) -> "Container":
         """Retrieves this container plus a file mounted at the given path.
 
@@ -1124,7 +1136,7 @@ class Container(Type):
         self,
         path: str,
         source: "Secret",
-        owner: Optional[str] = None,
+        owner: Optional[FilesystemOwner] = None,
     ) -> "Container":
         """Retrieves this container plus a secret mounted into a file at the
         given path.
@@ -1171,7 +1183,7 @@ class Container(Type):
         path: str,
         contents: Optional[str] = None,
         permissions: Optional[int] = None,
-        owner: Optional[str] = None,
+        owner: Optional[FilesystemOwner] = None,
     ) -> "Container":
         """Retrieves this container plus a new file written at the given path.
 
@@ -1290,7 +1302,7 @@ class Container(Type):
         self,
         path: str,
         source: "Socket",
-        owner: Optional[str] = None,
+        owner: Optional[FilesystemOwner] = None,
     ) -> "Container":
         """Retrieves this container plus a socket forwarded to the given Unix
         socket path.
@@ -2773,6 +2785,7 @@ __all__ = [
     "ContainerID",
     "DirectoryID",
     "FileID",
+    "FilesystemOwner",
     "Platform",
     "SecretID",
     "SocketID",
