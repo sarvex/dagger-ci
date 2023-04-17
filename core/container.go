@@ -121,6 +121,9 @@ type HostAlias struct {
 	Target string `json:"target"`
 }
 
+// Ownership contains a UID/GID pair resolved from a user/group name or ID pair
+// provided via the API. It primarily exists to distinguish an unspecified
+// ownership from UID/GID 0 (root) ownership.
 type Ownership struct {
 	UID int `json:"uid"`
 	GID int `json:"gid"`
@@ -931,7 +934,6 @@ func (container *Container) chown(
 		return nil, "", err
 	}
 
-	// "re-write" the mount to point to the chowned location
 	return def.ToPB(), filepath.Join("/chown", filepath.Base(srcPath)), nil
 }
 
@@ -1126,7 +1128,7 @@ func (container *Container) WithExec(ctx context.Context, gw bkgw.Client, defaul
 					secret.Owner.UID,
 					secret.Owner.GID,
 					0o400, // preserve default
-				)) // 0400 is default
+				))
 			}
 		default:
 			return nil, fmt.Errorf("malformed secret config at index %d", i)
@@ -1501,7 +1503,6 @@ const OCIStoreName = "dagger-oci"
 
 func (container *Container) Import(
 	ctx context.Context,
-	gw bkgw.Client,
 	host *Host,
 	source io.Reader,
 	tag string,
