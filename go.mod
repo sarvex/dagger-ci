@@ -67,6 +67,7 @@ require (
 	github.com/jackpal/gateway v1.0.7
 	github.com/muesli/termenv v0.15.1
 	github.com/nxadm/tail v1.4.8
+	github.com/opencontainers/runc v1.1.5
 	github.com/vito/vt100 v0.0.0-20230324203615-1b9f0c41442c
 	golang.org/x/exp v0.0.0-20230321023759-10a507213a29
 )
@@ -109,7 +110,7 @@ require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/charmbracelet/harmonica v0.2.0 // indirect
-	github.com/cloudflare/circl v1.1.0 // indirect
+	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/containerd/go-cni v1.1.9 // indirect
 	github.com/containerd/go-runc v1.0.1-0.20230316182144-f5d58d02d6c8 // indirect
 	github.com/containerd/typeurl/v2 v2.1.0 // indirect
@@ -161,7 +162,6 @@ require (
 	github.com/moby/sys/sequential v0.5.0 // indirect
 	github.com/onsi/ginkgo/v2 v2.6.1 // indirect
 	github.com/onsi/gomega v1.24.2 // indirect
-	github.com/opencontainers/runc v1.1.5 // indirect
 	github.com/opencontainers/selinux v1.11.0 // indirect
 	github.com/package-url/packageurl-go v0.1.1-0.20220428063043-89078438f170 // indirect
 	github.com/pjbgf/sha1cd v0.2.3 // indirect
