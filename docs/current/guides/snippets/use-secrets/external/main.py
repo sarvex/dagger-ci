@@ -33,7 +33,6 @@ async def gcp_get_secret_plaintext(project_id, secret_id):
 
     # retrieve secret
     response = await client.access_secret_version(request={"name": secret_uri})
-    secret_plaintext = response.payload.data.decode("UTF-8")
-    return secret_plaintext
+    return response.payload.data.decode("UTF-8")
 
 anyio.run(main)
