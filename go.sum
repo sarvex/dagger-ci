@@ -668,6 +668,8 @@ github.com/vito/midterm v0.1.5-0.20240307214207-d0271a7ca452 h1:I5FdiUvkD++87hOi
 github.com/vito/midterm v0.1.5-0.20240307214207-d0271a7ca452/go.mod h1:2ujYuyOObdWrQtnXAzwSBcPRKhC5Q96ex0nsf2Dmfzk=
 github.com/vito/progrock v0.10.2-0.20240221152222-63c8df30db8d h1:hh9zh0tcr3/th/mtxEpzLVE8rvx+LejDrbWmqmi+RUM=
 github.com/vito/progrock v0.10.2-0.20240221152222-63c8df30db8d/go.mod h1:Q8hxIUXZW8vkezLwH4TnRmXv+XdRb4KfLtS9t5RtH9g=
+github.com/vito/progrock v0.10.2-0.20240410141134-773ba331eed0 h1:KBE+7KuEL6m6l+x7jmaVOsOUEnyHGF067rfe55v99to=
+github.com/vito/progrock v0.10.2-0.20240410141134-773ba331eed0/go.mod h1:Q8hxIUXZW8vkezLwH4TnRmXv+XdRb4KfLtS9t5RtH9g=
 github.com/xanzy/ssh-agent v0.3.3 h1:+/15pJfg/RsTxqYcX6fHqOXZwwMP+2VyYWJeWM2qQFM=
 github.com/xanzy/ssh-agent v0.3.3/go.mod h1:6dzNDKs0J9rVPHPhaGCukekBHKqfl+L3KghI1Bc68Uw=
 github.com/yuin/goldmark v1.1.25/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
