@@ -83,7 +83,7 @@ require (
 	github.com/urfave/cli v1.22.14
 	github.com/vektah/gqlparser/v2 v2.5.11
 	github.com/vito/midterm v0.1.5-0.20240307214207-d0271a7ca452
-	github.com/vito/progrock v0.10.2-0.20240221152222-63c8df30db8d
+	github.com/vito/progrock v0.10.2-0.20240410141134-773ba331eed0
 	github.com/zeebo/xxh3 v1.0.2
 	go.etcd.io/bbolt v1.3.9
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.46.1
