@@ -72,7 +72,7 @@ require (
 	github.com/rs/cors v1.10.0
 	github.com/rs/zerolog v1.32.0
 	github.com/samber/slog-logrus/v2 v2.2.0
-	github.com/shurcooL/graphql v0.0.0-20220606043923-3cf50f8a0a29
+	github.com/shurcooL/graphql v0.0.0-20230722043721-ed46e5a46466
 	github.com/sirupsen/logrus v1.9.3
 	github.com/sourcegraph/conc v0.3.0
 	github.com/spf13/cobra v1.8.0
