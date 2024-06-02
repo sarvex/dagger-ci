@@ -1,7 +1,7 @@
 FROM golang:1.21-alpine3.19 AS golang-base
 FROM php:8.2-zts-bookworm AS php-base
 FROM composer/composer:2-bin AS composer_upstream
-FROM docker:20.10.17-cli-alpine3.16 AS docker-cli
+FROM docker:20.10.21-cli-alpine3.16 AS docker-cli
 
 # Dagger Engine Dev
 FROM golang-base AS dev-dagger-engine
