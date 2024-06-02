@@ -255,7 +255,7 @@
         <maven-plugin-annotations.version>3.8.1</maven-plugin-annotations.version>
         <maven-project.version>2.2.1</maven-project.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-        <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+        <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
         <maven-versions-plugin.version>2.16.0</maven-versions-plugin.version>
         <mockito-core.version>5.10.0</mockito-core.version>
         <slf4j-api.version>2.0.0</slf4j-api.version>
