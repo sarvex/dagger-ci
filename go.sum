@@ -292,8 +292,8 @@ github.com/gogo/googleapis v1.4.1/go.mod h1:2lpHqI5OcWCtVElxXnPt+s8oJvMpySlOyM6x
 github.com/gogo/protobuf v1.1.1/go.mod h1:r8qH/GZQm5c6nD/R0oafs1akxWv10x8SbQlK7atdtwQ=
 github.com/gogo/protobuf v1.3.2 h1:Ov1cvc58UF3b5XjBnZv7+opcTcQFZebYjWzi34vdm4Q=
 github.com/gogo/protobuf v1.3.2/go.mod h1:P1XiOD3dCwIKUDQYPy72D8LYyHL2YPYrpS2s69NZV8Q=
-github.com/golang-jwt/jwt/v4 v4.5.0 h1:7cYmW1XlMY7h7ii7UhUyChSgS5wUJEnm9uZVTGqOWzg=
-github.com/golang-jwt/jwt/v4 v4.5.0/go.mod h1:m21LjoU+eqJr34lmDMbreY2eSTRJ1cv77w39/MY0Ch0=
+github.com/golang-jwt/jwt/v4 v4.5.1 h1:JdqV9zKUdtaa9gdPlywC3aeoEsR681PlKC+4F5gQgeo=
+github.com/golang-jwt/jwt/v4 v4.5.1/go.mod h1:m21LjoU+eqJr34lmDMbreY2eSTRJ1cv77w39/MY0Ch0=
 github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=
 github.com/golang/groupcache v0.0.0-20190702054246-869f871628b6/go.mod h1:cIg4eruTrX1D+g88fzRXU5OdNfaM+9IcxsU14FzY7Hc=
 github.com/golang/groupcache v0.0.0-20191227052852-215e87163ea7/go.mod h1:cIg4eruTrX1D+g88fzRXU5OdNfaM+9IcxsU14FzY7Hc=
@@ -666,8 +666,6 @@ github.com/vishvananda/netns v0.0.4 h1:Oeaw1EM2JMxD51g9uhtC0D7erkIjgmj8+JZc26m1Y
 github.com/vishvananda/netns v0.0.4/go.mod h1:SpkAiCQRtJ6TvvxPnOSyH3BMl6unz3xZlaprSwhNNJM=
 github.com/vito/midterm v0.1.5-0.20240307214207-d0271a7ca452 h1:I5FdiUvkD++87hOiZYuDu0BqsaJXAnpOCed3kqkjCEE=
 github.com/vito/midterm v0.1.5-0.20240307214207-d0271a7ca452/go.mod h1:2ujYuyOObdWrQtnXAzwSBcPRKhC5Q96ex0nsf2Dmfzk=
-github.com/vito/progrock v0.10.2-0.20240221152222-63c8df30db8d h1:hh9zh0tcr3/th/mtxEpzLVE8rvx+LejDrbWmqmi+RUM=
-github.com/vito/progrock v0.10.2-0.20240221152222-63c8df30db8d/go.mod h1:Q8hxIUXZW8vkezLwH4TnRmXv+XdRb4KfLtS9t5RtH9g=
 github.com/vito/progrock v0.10.2-0.20240410141134-773ba331eed0 h1:KBE+7KuEL6m6l+x7jmaVOsOUEnyHGF067rfe55v99to=
 github.com/vito/progrock v0.10.2-0.20240410141134-773ba331eed0/go.mod h1:Q8hxIUXZW8vkezLwH4TnRmXv+XdRb4KfLtS9t5RtH9g=
 github.com/xanzy/ssh-agent v0.3.3 h1:+/15pJfg/RsTxqYcX6fHqOXZwwMP+2VyYWJeWM2qQFM=
