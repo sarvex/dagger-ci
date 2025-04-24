@@ -48,7 +48,7 @@ graphql-core==3.2.3
     # via gql
 grpcio==1.63.0
     # via opentelemetry-exporter-otlp-proto-grpc
-h11==0.14.0
+h11==0.16.0
     # via httpcore
 httpcore==1.0.5
     # via httpx
