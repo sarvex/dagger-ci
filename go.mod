@@ -1,6 +1,6 @@
 module github.com/dagger/dagger
 
-go 1.21
+go 1.23.0
 
 replace dagger.io/dagger => ./sdk/go
 
@@ -22,8 +22,8 @@ require (
 	github.com/charmbracelet/bubbletea v0.25.0
 	github.com/charmbracelet/lipgloss v0.10.0
 	github.com/containerd/console v1.0.4
-	github.com/containerd/containerd v1.7.15
-	github.com/containerd/continuity v0.4.3
+	github.com/containerd/containerd v1.7.29
+	github.com/containerd/continuity v0.4.4
 	github.com/containerd/fuse-overlayfs-snapshotter v1.0.8
 	github.com/containerd/go-runc v1.1.0
 	github.com/containerd/stargz-snapshotter v0.15.1
@@ -85,7 +85,7 @@ require (
 	github.com/vito/midterm v0.1.5-0.20240307214207-d0271a7ca452
 	github.com/vito/progrock v0.10.2-0.20240410141134-773ba331eed0
 	github.com/zeebo/xxh3 v1.0.2
-	go.etcd.io/bbolt v1.3.9
+	go.etcd.io/bbolt v1.3.10
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.46.1
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.49.0
 	go.opentelemetry.io/otel v1.24.0
@@ -97,22 +97,24 @@ require (
 	go.opentelemetry.io/otel/sdk/metric v1.24.0
 	go.opentelemetry.io/otel/trace v1.24.0
 	go.opentelemetry.io/proto/otlp v1.1.0
-	golang.org/x/crypto v0.22.0
+	golang.org/x/crypto v0.40.0
 	golang.org/x/exp v0.0.0-20231110203233-9a3e6036ecaa
-	golang.org/x/mod v0.17.0
-	golang.org/x/net v0.24.0
-	golang.org/x/oauth2 v0.17.0
-	golang.org/x/sync v0.7.0
-	golang.org/x/sys v0.19.0
-	golang.org/x/term v0.19.0
-	golang.org/x/text v0.14.0
-	golang.org/x/tools v0.20.0
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20240325203815-454cdb8f5daa
+	golang.org/x/mod v0.26.0
+	golang.org/x/net v0.42.0
+	golang.org/x/oauth2 v0.30.0
+	golang.org/x/sync v0.16.0
+	golang.org/x/sys v0.34.0
+	golang.org/x/term v0.33.0
+	golang.org/x/text v0.27.0
+	golang.org/x/tools v0.34.0
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240401170217-c3f982113cda
 	google.golang.org/grpc v1.63.2
-	google.golang.org/protobuf v1.33.0
+	google.golang.org/protobuf v1.35.2
 	gopkg.in/yaml.v3 v3.0.1
 	gotest.tools/v3 v3.5.1
 )
+
+require github.com/containerd/containerd/api v1.8.0
 
 require (
 	dario.cat/mergo v1.0.0 // indirect
@@ -122,8 +124,8 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/internal v1.0.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v0.4.1 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v0.6.0 // indirect
-	github.com/Microsoft/go-winio v0.6.1 // indirect
-	github.com/Microsoft/hcsshim v0.11.4 // indirect
+	github.com/Microsoft/go-winio v0.6.2 // indirect
+	github.com/Microsoft/hcsshim v0.11.7 // indirect
 	github.com/ProtonMail/go-crypto v1.0.0 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/agnivade/levenshtein v1.1.1 // indirect
@@ -154,19 +156,21 @@ require (
 	github.com/charmbracelet/bubbles v0.18.0 // indirect
 	github.com/cloudflare/circl v1.3.7 // indirect
 	github.com/containerd/cgroups v1.1.0 // indirect
+	github.com/containerd/errdefs v0.3.0 // indirect
 	github.com/containerd/fifo v1.1.0 // indirect
 	github.com/containerd/go-cni v1.1.9 // indirect
 	github.com/containerd/log v0.1.0 // indirect
 	github.com/containerd/nydus-snapshotter v0.13.7 // indirect
+	github.com/containerd/platforms v0.2.1 // indirect
 	github.com/containerd/stargz-snapshotter/estargz v0.15.1 // indirect
-	github.com/containerd/ttrpc v1.2.3 // indirect
+	github.com/containerd/ttrpc v1.2.7 // indirect
 	github.com/containerd/typeurl/v2 v2.1.1 // indirect
 	github.com/containernetworking/plugins v1.4.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.3 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.4 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
-	github.com/distribution/reference v0.5.0 // indirect
+	github.com/distribution/reference v0.6.0 // indirect
 	github.com/docker/docker-credential-helpers v0.8.0 // indirect
 	github.com/docker/go-connections v0.5.0 // indirect
 	github.com/docker/go-metrics v0.0.1 // indirect
@@ -177,7 +181,7 @@ require (
 	github.com/fogleman/ease v0.0.0-20170301025033-8da417bf1776 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.5.0 // indirect
-	github.com/go-logr/logr v1.4.1 // indirect
+	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/gogo/googleapis v1.4.1 // indirect
 	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
@@ -214,7 +218,8 @@ require (
 	github.com/moby/docker-image-spec v1.3.1 // indirect
 	github.com/moby/sys/mountinfo v0.7.1 // indirect
 	github.com/moby/sys/sequential v0.5.0 // indirect
-	github.com/moby/sys/user v0.1.0 // indirect
+	github.com/moby/sys/user v0.3.0 // indirect
+	github.com/moby/sys/userns v0.1.0 // indirect
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect
 	github.com/muesli/cancelreader v0.2.2 // indirect
@@ -255,8 +260,7 @@ require (
 	go.opentelemetry.io/otel/exporters/prometheus v0.46.0 // indirect
 	go.opentelemetry.io/otel/metric v1.24.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
-	golang.org/x/time v0.3.0 // indirect
-	google.golang.org/appengine v1.6.8 // indirect
+	golang.org/x/time v0.12.0 // indirect
 	google.golang.org/genproto v0.0.0-20240227224415-6ceb2ff114de // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20240227224415-6ceb2ff114de // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
